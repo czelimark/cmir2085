@@ -49,16 +49,60 @@ public class EmployeeFileRepositoryTest {
     @Test
     public void addEmployee() {
         assertFalse(employeeRepository.addEmployee(employee));
-        assertNull(employeeRepository.addEmployee(employee2));
+    }
+
+    @Test
+    public void addEmployee2() {
+        assertFalse(employeeRepository.addEmployee(employee2));
+    }
+
+    @Test
+    public void addEmployee3() {
         assertTrue(employeeRepository.addEmployee(employee3));
+    }
+
+    @Test
+    public void addEmployee4() {
         assertTrue(employeeRepository.addEmployee(employee4));
+    }
+
+    @Test
+    public void addEmployee5() {
         assertTrue(employeeRepository.addEmployee(employee5));
-        assertFalse(employeeRepository.addEmployee(employee6));
+    }
+
+    @Test
+    public void addEmployee6() {
+        assertTrue(employeeRepository.addEmployee(employee6));
+    }
+
+    @Test
+    public void addEmployee7() {
         assertFalse(employeeRepository.addEmployee(employee7));
-        assertTrue(employeeRepository.addEmployee(employee8));
+    }
+
+    @Test
+    public void addEmployee8() {
+        assertFalse(employeeRepository.addEmployee(employee8));
+    }
+
+    @Test
+    public void addEmployee9() {
         assertTrue(employeeRepository.addEmployee(employee9));
+    }
+
+    @Test
+    public void addEmployee10() {
         assertTrue(employeeRepository.addEmployee(employee10));
+    }
+
+    @Test
+    public void addEmployee11() {
         assertTrue(employeeRepository.addEmployee(employee11));
+    }
+
+    @Test
+    public void addEmployee12() {
         assertFalse(employeeRepository.addEmployee(employee12));
     }
 }
