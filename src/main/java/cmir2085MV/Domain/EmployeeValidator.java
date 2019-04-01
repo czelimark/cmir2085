@@ -6,15 +6,21 @@ public class EmployeeValidator {
     }
 
     public boolean isValid(Employee employee) {
-        boolean isLastNameValid = employee.getLastName().matches("[a-zA-Z]+") && (employee.getLastName().length() > 2);
-        boolean isFirstNameValid = employee.getLastName().matches("[a-zA-Z]+") && (employee.getLastName().length() > 2);
-        boolean isCNPValid = employee.getCnp().matches("[a-z0-9]+") && (employee.getCnp().length() == 13);
-        boolean isFunctionValid = employee.getFunction().equals(DidacticFunction.ASISTENT) ||
-                employee.getFunction().equals(DidacticFunction.LECTURER) ||
-                employee.getFunction().equals(DidacticFunction.TEACHER);
-        boolean isSalaryValid = employee.getSalary().toString().matches("[0-9]+") && (employee.getSalary().toString().length() > 1) && (employee.getSalary() > 0);
+        try {
+            boolean isLastNameValid = employee.getLastName().matches("[a-zA-Z]+") && (employee.getLastName().length() > 0) && (employee.getLastName().length() < 256);
+            boolean isFirstNameValid = employee.getLastName().matches("[a-zA-Z]+") && (employee.getLastName().length() > 2);
+            boolean isCNPValid = employee.getCnp().matches("[a-z0-9]+") && (employee.getCnp().length() == 13);
+            boolean isFunctionValid = employee.getFunction().equals(DidacticFunction.ASISTENT) ||
+                    employee.getFunction().equals(DidacticFunction.LECTURER) ||
+                    employee.getFunction().equals(DidacticFunction.TEACHER);
+            boolean isSalaryValid = employee.getSalary().toString().matches("[0-9]+") && (employee.getSalary() > 3000) && (employee.getSalary() < 12000);
 
-        return isLastNameValid && isFirstNameValid && isCNPValid && isFunctionValid && isSalaryValid;
+            return isLastNameValid && isFirstNameValid && isCNPValid && isFunctionValid && isSalaryValid;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
 }
