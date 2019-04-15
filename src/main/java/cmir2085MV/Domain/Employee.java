@@ -1,5 +1,7 @@
 package cmir2085MV.Domain;
 
+import org.apache.commons.lang3.ObjectUtils;
+
 public class Employee {
 
     /**
@@ -151,12 +153,17 @@ public class Employee {
      * equals function for employee
      */
     public boolean equals(Employee comparableEmployee) {
-        boolean hasSameLastName = this.lastName.equals(comparableEmployee.getLastName()),
-                hasSameFirstName = this.firstName.equals(comparableEmployee.getFirstName()),
-                hasSameCNP = this.cnp.equals(comparableEmployee.getCnp()),
-                hasSameFunction = this.function.equals(comparableEmployee.getFunction()),
-                hasSameSalary = this.salary.equals(comparableEmployee.getSalary());
-        return hasSameLastName && hasSameFirstName && hasSameCNP && hasSameFunction && hasSameSalary;
+        try {
+            boolean hasSameLastName = this.lastName.equals(comparableEmployee.getLastName()),
+                    hasSameFirstName = this.firstName.equals(comparableEmployee.getFirstName()),
+                    hasSameCNP = this.cnp.equals(comparableEmployee.getCnp()),
+                    hasSameFunction = this.function.equals(comparableEmployee.getFunction()),
+                    hasSameSalary = this.salary.equals(comparableEmployee.getSalary());
+            return hasSameLastName && hasSameFirstName && hasSameCNP && hasSameFunction && hasSameSalary;
+        }
+        catch (NullPointerException e) {
+            return false;
+        }
     }
 
     /**

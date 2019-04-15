@@ -28,5 +28,7 @@ public class EmployeeController {
 	public List<Employee> getEmployeesSorted() {
 	    return employeeRepository.getEmployeeByCriteria();
     }
+
+    public Employee searchForEmployee(String cnp) { return employeeRepository.searchForEmployee(cnp); }
 	
 }

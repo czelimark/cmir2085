@@ -11,5 +11,6 @@ public interface EmployeeRepositoryInterface {
 	boolean modifyEmployee(Employee oldEmployee, String function);
 	List<Employee> getEmployeeList();
 	List<Employee> getEmployeeByCriteria();
+	Employee searchForEmployee(String cnp);
 
 }

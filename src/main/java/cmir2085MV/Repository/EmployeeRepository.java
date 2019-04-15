@@ -70,4 +70,7 @@ public class EmployeeRepository implements EmployeeRepositoryInterface {
         });
         return employeeList;
     }
+
+    @Override
+	public Employee searchForEmployee(String cnp) { return null; }
 }

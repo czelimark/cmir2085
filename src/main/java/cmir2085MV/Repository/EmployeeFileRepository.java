@@ -13,7 +13,7 @@ import java.util.List;
 
 public class EmployeeFileRepository implements EmployeeRepositoryInterface {
 	
-	private final String employeeDBFile = "employees.txt";
+	private final String employeeDBFile = "D:\\Faculta_Mark\\Anul_3\\Semestrul_2\\VSS\\cmir2085\\employees.txt";
 	private EmployeeValidator employeeValidator = new EmployeeValidator();
 
 	@Override
@@ -35,7 +35,7 @@ public class EmployeeFileRepository implements EmployeeRepositoryInterface {
 
 	@Override
 	public boolean modifyEmployee(Employee oldEmployee, String function) {
-        String employeesDBFile = "employeesfile.txt";
+        String employeesDBFile = "D:\\Faculta_Mark\\Anul_3\\Semestrul_2\\VSS\\cmir2085\\employeesfile.txt";
 		if( function.equals("ASISTENT") || function.equals("LECTURER") || function.equals("TEACHER")) {
 			BufferedWriter bw;
 			BufferedReader br;
@@ -126,6 +126,29 @@ public class EmployeeFileRepository implements EmployeeRepositoryInterface {
             }
         });
 		return employeeList;
+	}
+
+	@Override
+	public Employee searchForEmployee(String cnp) {
+		List<Employee> employeeList = getEmployeeList();
+		Employee employee = null;
+		if(employeeList.size() == 0)
+		    employee = null;
+		else if(employeeList.size() == 1) {
+		    if(employeeList.get(0).getCnp().equals(cnp) || employeeList.get(0).getCnp().contains(cnp))
+		        employee = employeeList.get(0);
+		    else
+		        employee = null;
+        }
+        else {
+			int k = 1;
+		    while(k <= employeeList.size()) {
+		        if(employeeList.get(k).getCnp().equals(cnp) || employeeList.get(k).getCnp().contains(cnp))
+		            employee = employeeList.get(k);
+		        break;
+            }
+        }
+        return employee;
 	}
 
 }

@@ -21,9 +21,9 @@ public class StartApp {
 		EmployeeController employeeController = new EmployeeController(employeesRepository);
         EmployeeController employeeFileController = new EmployeeController(employeesFileRepository);
 
-		Employee Daria   = new Employee("Roman", "Daria", "2980221763738", DidacticFunction.ASISTENT, 25000);
-		Employee Mark   = new Employee("Czeli", "Mark", "1970928783738", DidacticFunction.LECTURER, 2500);
-		Employee Maria  = new Employee("Ionescu", "Maria", "5020221708078", DidacticFunction.LECTURER, 2500);
+		Employee Daria   = new Employee("Roman", "Daria", "2980221763738", DidacticFunction.ASISTENT, 10000);
+		Employee Mark   = new Employee("Czeli", "Mark", "1970928783738", DidacticFunction.LECTURER, 3500);
+		Employee Maria  = new Employee("Ionescu", "Maria", "5020221708078", DidacticFunction.LECTURER, 3500);
 
 		employeeController.addEmployee( Daria );
 		employeeController.addEmployee( Mark );
@@ -32,6 +32,8 @@ public class StartApp {
         employeeFileController.addEmployee( Daria );
         employeeFileController.addEmployee( Mark );
         employeeFileController.addEmployee( Maria );
+
+        System.out.println(employeeFileController.searchForEmployee(Daria.getCnp()));
 
         System.out.println("Consola");
 
