@@ -13,8 +13,8 @@ public class EmployeeController {
 		this.employeeRepository = employeeRepository;
 	}
 	
-	public void addEmployee(Employee employee) {
-		employeeRepository.addEmployee(employee);
+	public boolean addEmployee(Employee employee) {
+		return employeeRepository.addEmployee(employee);
 	}
 	
 	public List<Employee> getEmployeesList() {

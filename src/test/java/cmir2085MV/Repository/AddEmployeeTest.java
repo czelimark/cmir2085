@@ -4,12 +4,11 @@ import cmir2085MV.Domain.DidacticFunction;
 import cmir2085MV.Domain.Employee;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-
+import org.mockito.Mockito;
 import static org.junit.Assert.*;
 
-public class EmployeeFileRepositoryTest extends Utils {
+public class AddEmployeeTest extends Utils {
 
     Employee employee;
     Employee employee2;
@@ -27,7 +26,7 @@ public class EmployeeFileRepositoryTest extends Utils {
 
     @Before
     public void setUp() throws Exception {
-        employeeRepository = new EmployeeFileRepository();
+        employeeRepository = Mockito.mock(EmployeeFileRepository.class);
         employee = new Employee("", "Prenume", "1234567891234", DidacticFunction.LECTURER, 3301);
         employee2 = new Employee(null, "Prenume", "1234567891234", DidacticFunction.LECTURER, 3301);
         employee3 = new Employee("M", "Prenume", "1234567891234", DidacticFunction.LECTURER, 3301);
@@ -50,82 +49,86 @@ public class EmployeeFileRepositoryTest extends Utils {
 
     @Test
     public void addEmployee() {
-        assertFalse(employeeRepository.addEmployee(employee));
+        Mockito.when(employeeRepository.addEmployee(employee)).thenReturn(false);
+        Boolean bool = employeeRepository.addEmployee(employee);
+        assertEquals(false, bool);
     }
 
     @Test
     public void addEmployee2() {
-        assertFalse(employeeRepository.addEmployee(employee2));
+        Mockito.when(employeeRepository.addEmployee(employee2)).thenReturn(false);
+        Boolean bool = employeeRepository.addEmployee(employee2);
+        assertEquals(false, bool);
     }
 
     @Test
     public void addEmployee3() {
-        assertTrue(employeeRepository.addEmployee(employee3));
+        Mockito.when(employeeRepository.addEmployee(employee3)).thenReturn(true);
+        Boolean bool = employeeRepository.addEmployee(employee3);
+        assertEquals(true, bool);
     }
 
     @Test
     public void addEmployee4() {
-        assertTrue(employeeRepository.addEmployee(employee4));
+        Mockito.when(employeeRepository.addEmployee(employee4)).thenReturn(true);
+        Boolean bool = employeeRepository.addEmployee(employee4);
+        assertEquals(true, bool);
     }
 
     @Test
     public void addEmployee5() {
-        assertTrue(employeeRepository.addEmployee(employee5));
+        Mockito.when(employeeRepository.addEmployee(employee5)).thenReturn(true);
+        Boolean bool = employeeRepository.addEmployee(employee5);
+        assertEquals(true, bool);
     }
 
     @Test
     public void addEmployee6() {
-        assertFalse(employeeRepository.addEmployee(employee6));
+        Mockito.when(employeeRepository.addEmployee(employee6)).thenReturn(false);
+        Boolean bool = employeeRepository.addEmployee(employee6);
+        assertEquals(false, bool);
     }
 
     @Test
     public void addEmployee7() {
-        assertFalse(employeeRepository.addEmployee(employee7));
+        Mockito.when(employeeRepository.addEmployee(employee7)).thenReturn(false);
+        Boolean bool = employeeRepository.addEmployee(employee7);
+        assertEquals(false, bool);
     }
 
     @Test
     public void addEmployee8() {
-        assertTrue(employeeRepository.addEmployee(employee8));
+        Mockito.when(employeeRepository.addEmployee(employee8)).thenReturn(true);
+        Boolean bool = employeeRepository.addEmployee(employee8);
+        assertEquals(true, bool);
     }
 
     @Test
     public void addEmployee9() {
-        assertTrue(employeeRepository.addEmployee(employee9));
+        Mockito.when(employeeRepository.addEmployee(employee9)).thenReturn(true);
+        Boolean bool = employeeRepository.addEmployee(employee9);
+        assertEquals(true, bool);
     }
 
     @Test
     public void addEmployee10() {
-        assertTrue(employeeRepository.addEmployee(employee10));
+        Mockito.when(employeeRepository.addEmployee(employee10)).thenReturn(true);
+        Boolean bool = employeeRepository.addEmployee(employee10);
+        assertEquals(true, bool);
     }
 
     @Test
     public void addEmployee11() {
-        assertTrue(employeeRepository.addEmployee(employee11));
+        Mockito.when(employeeRepository.addEmployee(employee11)).thenReturn(true);
+        Boolean bool = employeeRepository.addEmployee(employee11);
+        assertEquals(true, bool);
     }
 
     @Test
     public void addEmployee12() {
-        assertFalse(employeeRepository.addEmployee(employee12));
+        Mockito.when(employeeRepository.addEmployee(employee12)).thenReturn(false);
+        Boolean bool = employeeRepository.addEmployee(employee12);
+        assertEquals(false, bool);
     }
 
-    @Test
-    public void sortingByCriteria() {
-        Employee employee = new Employee("M", "Prenume", "1800202891234", DidacticFunction.LECTURER, 3301);
-        employeeRepository.addEmployee(employee);
-        assertEquals(1, employeeRepository.getEmployeeByCriteria().size());
-    }
-
-    @Test
-    public void sortingByCriteria2() {
-        assertEquals(0, employeeRepository.getEmployeeByCriteria().size());
-    }
-
-    @Test
-    public void sortingByCriteria3() {
-        Employee employee = new Employee("Mo", "Prenume", "1800202891234", DidacticFunction.LECTURER, 3301);
-        Employee employee2 = new Employee("Mi", "Prenume", "1900202891234", DidacticFunction.LECTURER, 3301);
-        employeeRepository.addEmployee(employee);
-        employeeRepository.addEmployee(employee2);
-        assertEquals("Mi", employeeRepository.getEmployeeByCriteria().get(0).getLastName());
-    }
 }

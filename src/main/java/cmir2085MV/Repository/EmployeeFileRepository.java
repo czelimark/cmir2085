@@ -142,10 +142,12 @@ public class EmployeeFileRepository implements EmployeeRepositoryInterface {
         }
         else {
 			int k = 1;
-		    while(k <= employeeList.size()) {
-		        if(employeeList.get(k).getCnp().equals(cnp) || employeeList.get(k).getCnp().contains(cnp))
-		            employee = employeeList.get(k);
-		        break;
+		    while(k < employeeList.size()) {
+		        if(employeeList.get(k).getCnp().equals(cnp) || employeeList.get(k).getCnp().contains(cnp)) {
+                    employee = employeeList.get(k);
+                    break;
+                }
+		        k++;
             }
         }
         return employee;
